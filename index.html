@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Deine kleine Welt ❤️</title>
+
+<style>
+
+/* ============================== */
+/* GRUNDLAGEN */
+/* ============================== */
+
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+
+    background: linear-gradient(135deg, #ffe6f0, #fff5f8);
+
+    color: #5a3a46;
+
+    text-align: center;
+}
+
+
+/* ============================== */
+/* NAVIGATION */
+/* ============================== */
+
+nav {
+    position: sticky;
+    top: 0;
+
+    background-color: rgba(255,255,255,0.95);
+
+    padding: 15px;
+
+    z-index: 1000;
+
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+nav a {
+    margin: 8px;
+
+    text-decoration: none;
+
+    color: #d65a83;
+
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #ff2f70;
+}
+
+
+/* ============================== */
+/* STARTSEITE */
+/* ============================== */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px 20px;
+
+    background: linear-gradient(135deg, #ffd6e5, #fff0f5);
+}
+
+.hero h1 {
+    font-size: 42px;
+    color: #d94f7d;
+}
+
+.hero h2 {
+    font-size: 28px;
+    color: #b83d67;
+}
+
+.hero p {
+    max-width: 600px;
+
+    font-size: 18px;
+
+    line-height: 1.6;
+}
+
+
+/* ============================== */
+/* BILD */
+/* ============================== */
+
+.hauptbild {
+
+    width: 320px;
+    height: 320px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    margin: 30px;
+
+    border: 8px solid white;
+
+    box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+}
+
+
+/* ============================== */
+/* BUTTONS */
+/* ============================== */
+
+button,
+.button {
+
+    display: inline-block;
+
+    background-color: #e76f9b;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 25px;
+
+    padding: 14px 25px;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    transition: 0.3s;
+
+    margin: 10px;
+}
+
+button:hover,
+.button:hover {
+
+    background-color: #d94f7d;
+
+    transform: scale(1.05);
+}
+
+
+/* ============================== */
+/* ABSCHNITTE */
+/* ============================== */
+
+.section {
+
+    padding: 90px 20px;
+
+    min-height: 500px;
+}
+
+.section h2 {
+
+    font-size: 32px;
+
+    color: #d94f7d;
+}
+
+
+/* ============================== */
+/* NACHRICHTENBOX */
+/* ============================== */
+
+.message-box {
+
+    max-width: 600px;
+
+    margin: 30px auto;
+
+    padding: 25px;
+
+    background-color: white;
+
+    border-radius: 20px;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+
+    font-size: 20px;
+
+    min-height: 60px;
+}
+
+
+/* ============================== */
+/* GLAS */
+/* ============================== */
+
+.glas-container {
+
+    display: flex;
+    justify-content: center;
+
+    margin-top: 40px;
+}
+
+.glas {
+
+    width: 280px;
+    height: 350px;
+
+    background: rgba(255,255,255,0.4);
+
+    border: 6px solid #bcd7df;
+
+    border-top: none;
+
+    border-radius: 0 0 50px 50px;
+
+    position: relative;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    align-content: flex-end;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 30px 15px;
+}
+
+.glas::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -15px;
+    left: -6px;
+
+    width: 280px;
+    height: 25px;
+
+    background: #bcd7df;
+
+    border-radius: 10px;
+}
+
+.zettel {
+
+    width: 60px;
+    height: 60px;
+
+    background: #ffd966;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    font-size: 28px;
+
+    cursor: pointer;
+
+    transform: rotate(-5deg);
+
+    box-shadow: 2px 3px 5px rgba(0,0,0,0.15);
+
+    transition: 0.3s;
+}
+
+.zettel:hover {
+
+    transform: rotate(0deg) scale(1.15);
+}
+
+
+/* ============================== */
+/* TIMELINE */
+/* ============================== */
+
+.timeline {
+
+    max-width: 700px;
+
+    margin: 50px auto;
+
+    position: relative;
+
+    text-align: left;
+}
+
+.timeline::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 20px;
+
+    top: 0;
+    bottom: 0;
+
+    width: 4px;
+
+    background: #e76f9b;
+}
+
+.timeline-item {
+
+    position: relative;
+
+    margin-bottom: 50px;
+
+    padding-left: 60px;
+}
+
+.timeline-dot {
+
+    position: absolute;
+
+    left: 8px;
+
+    top: 5px;
+
+    width: 28px;
+    height: 28px;
+
+    background: #e76f9b;
+
+    border-radius: 50%;
+
+    border: 5px solid #ffe6f0;
+}
+
+.timeline-item h3 {
+    color: #d94f7d;
+}
+
+.timeline-item h4 {
+    font-size: 20px;
+}
+
+
+/* ============================== */
+/* INPUT FELDER */
+/* ============================== */
+
+input {
+
+    padding: 12px;
+
+    margin: 8px;
+
+    border: 2px solid #f3b4c9;
+
+    border-radius: 10px;
+
+    font-size: 16px;
+
+    outline: none;
+}
+
+
+/* ============================== */
+/* ÜBERRASCHUNG */
+/* ============================== */
+
+.surprise {
+
+    background: linear-gradient(135deg, #f9d5e5, #fff);
+
+    min-height: 500px;
+}
+
+#surprise-message {
+
+    margin-top: 30px;
+
+    font-size: 24px;
+
+    color: #d94f7d;
+
+    font-weight: bold;
+}
+
+
+/* ============================== */
+/* FOOTER */
+/* ============================== */
+
+footer {
+
+    background-color: #d65a83;
+
+    color: white;
+
+    padding: 30px;
+}
+
+
+/* ============================== */
+/* HERZ-ANIMATION */
+/* ============================== */
+
+.herz {
+
+    position: fixed;
+
+    bottom: -20px;
+
+    font-size: 25px;
+
+    animation: schweben 6s linear forwards;
+
+    pointer-events: none;
+}
+
+@keyframes schweben {
+
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================================= -->
+<!-- NAVIGATION -->
+<!-- ================================= -->
+
+<nav>
+
+<a href="#start">Startseite</a>
+<a href="#botschaften">Botschaften</a>
+<a href="#glas">Das Glas</a>
+<a href="#timeline">Unsere Zeit</a>
+<a href="#rechner">Liebesrechner</a>
+<a href="#ueberraschung">Überraschung</a>
+
+</nav>
+
+
+<!-- ================================= -->
+<!-- STARTSEITE -->
+<!-- ================================= -->
+
+<section id="start" class="hero">
+
+<h1>Das hier hab ich für dich gemacht my love ❤️</h1>
+
+<!-- HIER NAMEN ÄNDERN -->
+<h2>Für den Oberstinker</h2>
+
+<p>
+
+Die Website ist nur für dich gemacht!
+
+Weil du ein ganz besonderer Mensch in meinem Leben bist. Und weil ich dich bis hier her rieche.
+
+</p>
+
+
+<!-- HIER BILDPFAD ÄNDERN -->
+
+<img src="bilder/Stinker.jpeg"
+     alt="Unser gemeinsames Bild"
+     class="hauptbild">
+
+
+<p>
+Scroll ruhig noch bissel weiter... vielleicht is hier noch was.
+</p>
+
+
+<a href="#botschaften" class="button">
+Entdecke unsere Welt 💕
+</a>
+
+</section>
+
+
+<!-- ================================= -->
+<!-- LIEBESBOTSCHAFTEN -->
+<!-- ================================= -->
+
+<section id="botschaften" class="section">
+
+<h2>Eine kleine Nachricht für dich 💌</h2>
+
+<p>
+Manchmal braucht man einfach eine kleine Erinnerung daran,
+wie besonders man ist.
+</p>
+
+
+<div class="message-box">
+
+<p id="message">
+Klicke auf den Button für eine Nachricht ❤️
+</p>
+
+</div>
+
+
+<button onclick="neueNachricht()">
+Neue Liebesbotschaft
+</button>
+
+</section>
+
+
+<!-- ================================= -->
+<!-- DIGITALES GLAS -->
+<!-- ================================= -->
+
+<section id="glas" class="section">
+
+<h2>Ein Glas voller kleiner Erinnerungen 🫙</h2>
+
+<p>
+Klicke auf einen Zettel und entdecke eine kleine Nachricht.
+</p>
+
+
+<div class="glas-container">
+
+<div class="glas">
+
+<div class="zettel" onclick="zeigeZettel(0)">💌</div>
+
+<div class="zettel" onclick="zeigeZettel(1)">💖</div>
+
+<div class="zettel" onclick="zeigeZettel(2)">🌸</div>
+
+<div class="zettel" onclick="zeigeZettel(3)">⭐</div>
+
+<div class="zettel" onclick="zeigeZettel(4)">💕</div>
+
+</div>
+
+</div>
+
+
+<div id="zettel-text" class="message-box">
+
+Klicke auf einen Zettel im Glas!
+
+</div>
+
+</section>
+
+
+<!-- ================================= -->
+<!-- TIMELINE -->
+<!-- ================================= -->
+
+<section id="timeline" class="section">
+
+<h2>Unsere gemeinsame Zeit ⏳❤️</h2>
+
+<p>
+Die schönsten Momente unserer Geschichte.
+</p>
+
+
+<div class="timeline">
+
+
+<!-- TIMELINE PUNKT 1 -->
+
+<div class="timeline-item">
+
+<div class="timeline-dot"></div>
+
+<h3>26.05.2026</h3>
+
+<h4>Unser erstes Kennenlernen</h4>
+
+<p>
+ICH HAB DICH VOM HBF ABGEHOLT und WIR SIND ZUR ELBE GELAUFEN HABEN WAS GEGESSEN 
+</p>
+
+</div>
+
+
+<!-- TIMELINE PUNKT 2 -->
+
+<div class="timeline-item">
+
+<div class="timeline-dot"></div>
+
+<h3>30.05.2026</h3>
+
+<h4>Unser erster besonderer Moment</h4>
+
+<p>
+FEIERN IN GLASHÜTTE.
+</p>
+
+</div>
+
+
+<!-- TIMELINE PUNKT 3 -->
+
+<div class="timeline-item">
+
+<div class="timeline-dot"></div>
+
+<h3>31.05..2026</h3>
+
+<h4>Ein Tag, den ich nie vergessen werde</h4>
+
+<p>
+UNSER ERSTES MAL.
+</p>
+
+</div>
+
+
+<!-- TIMELINE PUNKT 4 -->
+
+<div class="timeline-item">
+
+<div class="timeline-dot"></div>
+
+<h3>Heute</h3>
+
+<h4>Und hoffentlich noch viele weitere Momente</h4>
+
+<p>
+Ich freue mich auf alles was ich noch mit dir mache und erlebe!
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ================================= -->
+<!-- LIEBESTASCHENRECHNER -->
+<!-- ================================= -->
+
+<section id="rechner" class="section">
+
+<h2>Der wissenschaftlich völlig seriöse Liebestaschenrechner </h2>
+
+<p>
+Gib unsere Namen ein und finde heraus,
+wie viel Kompatibilität wir haben.
+</p>
+
+
+<input type="text" id="name1" placeholder="Dein Name">
+
+<input type="text" id="name2" placeholder="Name deines Freundes">
+
+<br>
+
+
+<button onclick="berechneLiebe()">
+Liebe berechnen ❤️
+</button>
+
+
+<div id="love-result" class="message-box">
+
+Das Ergebnis erscheint hier...
+
+</div>
+
+</section>
+
+
+<!-- ================================= -->
+<!-- ÜBERRASCHUNGSSEITE -->
+<!-- ================================= -->
+
+<section id="ueberraschung" class="section surprise">
+
+<h2>⚠️ NICHT AUF DIESEN BUTTON KLICKEN ⚠️</h2>
+
+<p>
+Wirklich nicht.
+</p>
+
+
+<button onclick="ueberraschung()">
+Nicht anklicken!!!
+</button>
+
+
+<div id="surprise-message"></div>
+
+</section>
+
+
+<!-- ================================= -->
+<!-- FOOTER -->
+<!-- ================================= -->
+
+<footer>
+
+<p>
+Gemacht mit viel Liebe von Anton ❤️
+</p>
+
+<p>
+Für den Stinker
+</p>
+
+</footer>
+
+
+<!-- ================================= -->
+<!-- JAVASCRIPT DIREKT IN HTML -->
+<!-- ================================= -->
+
+<script>
+
+
+/* ================================= */
+/* LIEBESBOTSCHAFTEN */
+/* ================================= */
+
+const nachrichten = [
+
+"Du bist ein unglaublich besonderer Mensch in meinem Leben. ❤️",
+
+"Ich hoffe, du weißt, wie wichtig du mir bist.",
+
+"Mit dir sind selbst ganz normale Tage etwas Besonderes.",
+
+"Du schaffst es immer wieder, mich zum Lächeln zu bringen.",
+
+"Ich bin froh, dass es dich gibt.",
+
+"Egal wie stressig der Tag ist – du bist immer ein schöner Gedanke.",
+
+"Du bist mein Lieblingsmensch. 💕",
+
+"Danke, dass du genauso bist, wie du bist.",
+
+"Manchmal brauche ich gar nichts Besonderes. Es reicht, dass es dich gibt.",
+
+"Ich freue mich auf all die Erinnerungen, die noch vor uns liegen."
+
+];
+
+
+function neueNachricht() {
+
+let zufall = Math.floor(Math.random() * nachrichten.length);
+
+document.getElementById("message").innerText = nachrichten[zufall];
+
+}
+
+
+/* ================================= */
+/* DIGITALES GLAS */
+/* ================================= */
+
+const zettelNachrichten = [
+
+"Wie wir unter der Brücke in Pieschen den Sonnenuntergang angeschaut haben ❤️",
+
+"Ich liebe an dir deine liebevolle Art zu Tieren  💕",
+
+"Weißt du noch in meinem Bett wo wir uns nass gespuckt haben 😂",
+
+"Ich liebe dich so so sehr du bist so tooolll 🌸",
+
+"Ich bin froh dich zu haben weil ich bspw. mit dir alles um mich drum rum vergesse weil alles so schön mit dir ist ⭐"
+
+];
+
+
+function zeigeZettel(index) {
+
+document.getElementById("zettel-text").innerText =
+zettelNachrichten[index];
+
+}
+
+
+/* ================================= */
+/* LIEBESTASCHENRECHNER */
+/* ================================= */
+
+function berechneLiebe() {
+
+let name1 = document.getElementById("name1").value;
+
+let name2 = document.getElementById("name2").value;
+
+
+if (name1 === "" || name2 === "") {
+
+document.getElementById("love-result").innerText =
+"Bitte beide Namen eingeben ❤️";
+
+return;
+
+}
+
+
+let liebe = Math.floor(Math.random() * 6) + 95;
+
+
+let ergebnisse = [
+
+liebe + "% Liebe-Kompatibilität! Absolut wissenschaftlich bewiesen. ❤️",
+
+liebe + "%! Das ist gefährlich viel Niedlichkeit.",
+
+liebe + "% Kompatibilität. Die Mathematik ist eindeutig.",
+
+liebe + "%! Das Universum sagt: Ihr seid ein gutes Team.",
+
+liebe + "% Chaos-Kompatibilität – und genau das macht es perfekt."
+
+];
+
+
+let zufall = Math.floor(Math.random() * ergebnisse.length);
+
+
+document.getElementById("love-result").innerText =
+
+name1 + " + " + name2 + " = " + ergebnisse[zufall];
+
+}
+
+
+/* ================================= */
+/* ÜBERRASCHUNG */
+/* ================================= */
+
+function ueberraschung() {
+
+document.getElementById("surprise-message").innerHTML =
+
+"🎉 ÜBERRASCHUNG! 🎉<br><br>" +
+
+"Boah bist du dumm eyy hahahahaha.<br>" +
+
+"Frauen halt. 😄<br><br>" +
+
+"Die wichtigste Nachricht ist aber:<br><br>" +
+
+"Du bist wundertooollll, und ich bin unglaublich froh, dich zu haben. ❤️";
+
+}
+
+
+/* ================================= */
+/* SCHWEBENDE HERZEN */
+/* ================================= */
+
+function herzErstellen() {
+
+let herz = document.createElement("div");
+
+herz.classList.add("herz");
+
+herz.innerText = "❤️";
+
+herz.style.left = Math.random() * 100 + "vw";
+
+herz.style.animationDuration = (Math.random() * 3 + 3) + "s";
+
+document.body.appendChild(herz);
+
+
+setTimeout(function() {
+
+herz.remove();
+
+}, 6000);
+
+}
+
+
+setInterval(herzErstellen, 1200);
+
+
+</script>
+
+</body>
+</html>
